@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "allowJs": true,
     "module": "commonjs",
     "declaration": true,
     "removeComments": true,
@@ -9,10 +10,18 @@
     "allowSyntheticDefaultImports": true,
     "target": "es2017",
     "sourceMap": true,
-    "outDir": "./dist",
-    "baseUrl": "./",
+    "outDir": "dist",
+    "baseUrl": ".",
     "incremental": true,
     "noImplicitAny": true,
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "paths": {
+      "@ddd/core": [
+        "../shared/ddd/packages/core"
+      ],
+      "@ddd/jest-extend": [
+        "../shared/ddd/packages/jest-extend"
+      ]
+    }
   }
 }

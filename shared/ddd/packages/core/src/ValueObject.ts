@@ -12,7 +12,7 @@ interface ValueObjectProps {
  * Value objects hold invariant rules for business logic.
  */
 export class ValueObject<T extends ValueObjectProps> {
-  private readonly props: T
+  protected readonly props: T
 
   protected constructor(props: T) {
     this.props = { ...props }

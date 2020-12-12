@@ -16,15 +16,15 @@ describe('UniqueId', () => {
     })
 
     it('returns false if given id with props is not equal', () => {
-      const id1 = new UniqueId('test-id-1')
-      const id2 = new UniqueId('test-id-2')
+      const id1 = new UniqueId('jest-extend-id-1')
+      const id2 = new UniqueId('jest-extend-id-2')
 
       expect(id1.equals(id2)).toBeFalse()
     })
 
     it('returns true if given id with props is equal', () => {
-      const id1 = new UniqueId('test-id')
-      const id2 = new UniqueId('test-id')
+      const id1 = new UniqueId('jest-extend-id')
+      const id2 = new UniqueId('jest-extend-id')
 
       expect(id1.equals(id2)).toBeTrue()
     })
