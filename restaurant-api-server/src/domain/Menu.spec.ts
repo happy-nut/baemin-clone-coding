@@ -38,7 +38,7 @@ describe('Menu', () => {
   })
 
   it('returns ok when ID and valid props are given', () => {
-    const id = 'menu-id'
+    const id = new UniqueId('menu-id')
 
     const result = Menu.create(
       {
@@ -51,7 +51,7 @@ describe('Menu', () => {
         isSoldOut: IS_SOLD_OUT,
         isForAdults: IS_FOR_ADULTS
       },
-      new UniqueId(id)
+      id
     )
 
     expect(result.isOk()).toBeTrue()
@@ -64,6 +64,6 @@ describe('Menu', () => {
     expect(menu.isRepresentativeMenu).toBe(IS_REPRESENTATIVE_MENU)
     expect(menu.isSoldOut).toBe(IS_SOLD_OUT)
     expect(menu.isForAdults).toBe(IS_FOR_ADULTS)
-    expect(menu.id.value).toBe(id)
+    expect(menu.id.equals(id)).toBeTrue()
   })
 })

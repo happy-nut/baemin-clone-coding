@@ -16,7 +16,7 @@ describe('MenuName', () => {
   })
 
   it('returns ok with menu name when name is valid', () => {
-    const menuName = 'valid menu name'
+    const menuName = 'valid-menu-name'
 
     const result = MenuName.create({ value: menuName })
 

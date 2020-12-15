@@ -17,6 +17,3 @@ rules:
     - 2
     - single
     - avoidEscape: true
-settings:
-  react:
-    version: 'detect'
