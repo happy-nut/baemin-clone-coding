@@ -1,6 +1,6 @@
 import { MenuName } from './MenuName'
 import { Price } from './Price'
-import { Entity, UniqueId } from '@ddd/core'
+import { DomainViolationError, Entity, UniqueId } from '@ddd/core'
 import { ok, Result } from 'neverthrow'
 
 interface MenuProps {
@@ -14,11 +14,9 @@ interface MenuProps {
   isForAdults: boolean // E.g. 주류
 }
 
-export type MenuError = void
-
 export class Menu extends Entity<MenuProps> {
-  static create(props: MenuProps, id?: UniqueId): Result<Menu, MenuError> {
-    return ok(new Menu({...props}, id ?? new UniqueId()))
+  static create(props: MenuProps, id?: UniqueId): Result<Menu, DomainViolationError> {
+    return ok(new Menu({ ...props }, id ?? new UniqueId()))
   }
 
   get name(): MenuName {

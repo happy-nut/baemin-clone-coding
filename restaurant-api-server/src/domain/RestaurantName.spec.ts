@@ -1,18 +1,18 @@
-import { RestaurantName, RestaurantNameError } from './RestaurantName'
+import { RestaurantName } from './RestaurantName'
 
 describe('RestaurantName', () => {
-  it('returns InvalidRestaurantName err when name is empty', () => {
+  it('returns err when name is empty', () => {
     const result = RestaurantName.create({ value: '' })
 
     expect(result.isErr()).toBeTrue()
-    expect(result._unsafeUnwrapErr()).toBe(RestaurantNameError.InvalidRestaurantName)
+    expect(result._unsafeUnwrapErr()).toBe('Invalid restaurant name')
   })
 
-  it('returns InvalidRestaurantName err when length of the name is over 20', () => {
+  it('returns err when length of the name is over 20', () => {
     const result = RestaurantName.create({ value: 'a'.repeat(21) })
 
     expect(result.isErr()).toBeTrue()
-    expect(result._unsafeUnwrapErr()).toBe(RestaurantNameError.InvalidRestaurantName)
+    expect(result._unsafeUnwrapErr()).toBe('Invalid restaurant name')
   })
 
   it('returns ok with menu name when name is valid', () => {

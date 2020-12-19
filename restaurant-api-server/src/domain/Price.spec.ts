@@ -1,18 +1,18 @@
-import { Price, PriceError } from './Price'
+import { Price } from './Price'
 
 describe('Price', () => {
-  it('returns InvalidPrice err when price is smaller than 0', () => {
+  it('returns err when price is smaller than 0', () => {
     const result = Price.create({ value: -1 })
 
     expect(result.isErr()).toBeTrue()
-    expect(result._unsafeUnwrapErr()).toBe(PriceError.InvalidPrice)
+    expect(result._unsafeUnwrapErr()).toBe('Invalid price')
   })
 
-  it('returns InvalidPrice err when price is not an integer', () => {
+  it('returns err when price is not an integer', () => {
     const result = Price.create({ value: 0.5 })
 
     expect(result.isErr()).toBeTrue()
-    expect(result._unsafeUnwrapErr()).toBe(PriceError.InvalidPrice)
+    expect(result._unsafeUnwrapErr()).toBe('Invalid price')
   })
 
   it('returns ok with price when price is valid', () => {

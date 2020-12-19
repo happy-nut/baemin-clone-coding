@@ -1,18 +1,28 @@
-export enum RestaurantCategory {
-  PackagingVisiting, // 포장/방문
-  OneServingFood, // 1인분
-  Korean,  // 한식
-  SchoolFood, // 분식
-  CafeDesert, // 카페 - 디저트
-  Japanese, // 돈까스 - 회 - 일식
-  Chicken, // 치킨
-  Pizza, // 피자
-  AsianForeign, // 아시안 - 양식
-  Chinese, // 중국집
-  JokbalBossam, // 족발 - 보쌈
-  MidnightMeal, // 야식
-  StreamStew, // 찜 - 탕
-  LunchBox, // 도시락
-  FastFood, // 패스트 푸드
-  Franchise // 프랜차이즈
+import { AggregateRoot, DomainViolationError, UniqueId } from '@ddd/core'
+import { ok, Result } from 'neverthrow'
+
+interface RestaurantCategoryProps {
+  // TODO: Consider to introduce localizedNameKey for i18n support. For now, support korean only.
+  name: string
+  // TODO: Add category icon path.
+}
+
+export class RestaurantCategoryId extends UniqueId {
+}
+
+export class RestaurantCategory extends AggregateRoot<RestaurantCategoryProps> {
+  static create (
+    props: RestaurantCategoryProps,
+    id: RestaurantCategoryId
+  ): Result<RestaurantCategory, DomainViolationError> {
+    return ok(new RestaurantCategory({ ...props }, id))
+  }
+
+  static createNew (props: RestaurantCategoryProps): Result<RestaurantCategory, DomainViolationError> {
+    return ok(new RestaurantCategory({ ...props }, new RestaurantCategoryId()))
+  }
+
+  get name (): string {
+    return this.props.name
+  }
 }

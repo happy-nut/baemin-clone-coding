@@ -1,18 +1,18 @@
-import { MenuName, MenuNameError } from './MenuName'
+import { MenuName } from './MenuName'
 
 describe('MenuName', () => {
-  it('returns InvalidMenuName err when name is empty', () => {
+  it('returns err when name is empty', () => {
     const result = MenuName.create({ value: '' })
 
     expect(result.isErr()).toBeTrue()
-    expect(result._unsafeUnwrapErr()).toBe(MenuNameError.InvalidMenuName)
+    expect(result._unsafeUnwrapErr()).toBe('Invalid menu name')
   })
 
-  it('returns InvalidMenuName err when length of the name is over 20', () => {
+  it('returns err when length of the name is over 20', () => {
     const result = MenuName.create({ value: 'a'.repeat(21) })
 
     expect(result.isErr()).toBeTrue()
-    expect(result._unsafeUnwrapErr()).toBe(MenuNameError.InvalidMenuName)
+    expect(result._unsafeUnwrapErr()).toBe('Invalid menu name')
   })
 
   it('returns ok with menu name when name is valid', () => {
