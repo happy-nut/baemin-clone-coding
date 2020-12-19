@@ -9,7 +9,7 @@ interface MenuNameProps {
 export class MenuName extends ValueObject<MenuNameProps> {
   private static readonly MAX_LENGTH = 20
 
-  static create(props: MenuNameProps): Result<MenuName, DomainViolationError> {
+  static create (props: MenuNameProps): Result<MenuName, DomainViolationError> {
     if (_.isEmpty(props.value) || props.value.length > MenuName.MAX_LENGTH) {
       return err('Invalid menu name')
     }
@@ -17,7 +17,7 @@ export class MenuName extends ValueObject<MenuNameProps> {
     return ok(new MenuName({ ...props }))
   }
 
-  get value(): string {
+  get value (): string {
     return this.props.value
   }
 }

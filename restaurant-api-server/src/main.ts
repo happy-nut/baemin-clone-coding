@@ -16,7 +16,7 @@ function setupDocument (app: INestApplication) {
   SwaggerModule.setup('docs', app, document)
 }
 
-async function bootstrap() {
+async function bootstrap () {
   const app = await NestFactory.create(AppModule)
   setupDocument(app)
 

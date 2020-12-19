@@ -12,7 +12,7 @@ export class Address extends ValueObject<AddressProps> {
   private static readonly MAX_LONGITUDE = 180.0
   private static readonly MIN_LONGITUDE = -180.0
 
-  static create(props: AddressProps): Result<Address, DomainViolationError> {
+  static create (props: AddressProps): Result<Address, DomainViolationError> {
     if (
       props.latitude > this.MAX_LATITUDE ||
       props.latitude < this.MIN_LATITUDE ||
@@ -25,11 +25,11 @@ export class Address extends ValueObject<AddressProps> {
     return ok(new Address({ ...props }))
   }
 
-  get latitude(): number {
+  get latitude (): number {
     return this.props.latitude
   }
 
-  get longitude(): number {
+  get longitude (): number {
     return this.props.longitude
   }
 }

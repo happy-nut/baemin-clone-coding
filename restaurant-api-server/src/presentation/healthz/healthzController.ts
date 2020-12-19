@@ -6,7 +6,7 @@ export class HealthzController {
 
   @ApiOkResponse()
   @Get('healthz')
-  healthz(): unknown {
+  healthz (): unknown {
     return {}
   }
 }

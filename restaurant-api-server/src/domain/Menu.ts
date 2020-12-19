@@ -15,39 +15,39 @@ interface MenuProps {
 }
 
 export class Menu extends Entity<MenuProps> {
-  static create(props: MenuProps, id?: UniqueId): Result<Menu, DomainViolationError> {
+  static create (props: MenuProps, id?: UniqueId): Result<Menu, DomainViolationError> {
     return ok(new Menu({ ...props }, id ?? new UniqueId()))
   }
 
-  get name(): MenuName {
+  get name (): MenuName {
     return this.props.name
   }
 
-  get ingredientsOverview(): string | undefined {
+  get ingredientsOverview (): string | undefined {
     return this.props.ingredientsOverview
   }
 
-  get description(): string | undefined {
+  get description (): string | undefined {
     return this.props.description
   }
 
-  get price(): Price {
+  get price (): Price {
     return this.props.price
   }
 
-  get imageUrl(): string | undefined {
+  get imageUrl (): string | undefined {
     return this.props.imageUrl
   }
 
-  get isRepresentativeMenu(): boolean {
+  get isRepresentativeMenu (): boolean {
     return this.props.isRepresentativeMenu
   }
 
-  get isSoldOut(): boolean {
+  get isSoldOut (): boolean {
     return this.props.isSoldOut
   }
 
-  get isForAdults(): boolean {
+  get isForAdults (): boolean {
     return this.props.isForAdults
   }
 }
