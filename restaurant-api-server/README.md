@@ -2,9 +2,13 @@
 
 API server about restaurants for webapp backend.
 
-## Description
+## Prerequisite
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+1. Install Mysql
+
+```bash
+$ brew instasll mysql@8.0.22
+```
 
 ## Installation
 
@@ -27,6 +31,22 @@ $ yarn start:prod
 
 ## Test
 
+### Prerequisite
+
+Make sure mysql was started.
+
+```bash
+$ brew services start mysql
+```
+
+Set up for test.
+
+```bash
+$ mysql -u root < scripts/setTest.sql
+```
+
+Run test.
+
 ```bash
 # unit tests
 $ yarn test
@@ -37,4 +57,3 @@ $ yarn test:e2e
 # test coverage
 $ yarn test:cov
 ```
-

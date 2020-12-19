@@ -13,6 +13,10 @@ describe('AppModule', () => {
       .compile()
   })
 
+  afterEach(async () => {
+    await uut.close()
+  })
+
   it('gets HealthzController', () => {
     expect(uut.get(HealthzController)).toBeInstanceOf(HealthzController)
   })
