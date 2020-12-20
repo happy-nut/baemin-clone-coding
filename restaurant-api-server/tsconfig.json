@@ -11,17 +11,26 @@
     "target": "es2017",
     "sourceMap": true,
     "outDir": "dist",
-    "baseUrl": ".",
+    "baseUrl": "src",
     "incremental": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
     "paths": {
       "@ddd/core": [
-        "../shared/ddd/packages/core"
+        "../../shared/ddd/packages/core/src"
       ],
       "@ddd/jest-extend": [
-        "../shared/ddd/packages/jest-extend"
+        "../../shared/ddd/packages/jest-extend/src"
       ]
     }
-  }
+  },
+  "exclude": ["test", "**/*.spec.ts"],
+  "references": [
+    {
+      "path": "../shared/ddd/packages/core"
+    },
+    {
+      "path": "../shared/ddd/packages/jest-extend"
+    }
+  ]
 }

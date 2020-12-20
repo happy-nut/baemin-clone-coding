@@ -2,14 +2,14 @@
   "extends": "../tsconfig.base.json",
   "compilerOptions": {
     "outDir": "dist",
-    "baseUrl": ".",
+    "baseUrl": "src",
     "paths": {
       "@ddd/core": [
-        "../core"
+        "../../core/src"
       ]
     }
   },
-  "include": ["*.ts", "**/*.ts"],
+  "include": ["**/*.ts"],
   "references": [
     {
       "path": "../core"

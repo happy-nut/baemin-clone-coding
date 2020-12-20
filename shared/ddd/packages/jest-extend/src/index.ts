@@ -1,7 +1,6 @@
 /* eslint-disable */
 
 import { Entity, ValueObject } from '@ddd/core'
-import './matchers'
 
 declare global {
   namespace jest {
@@ -11,3 +10,5 @@ declare global {
     }
   }
 }
+
+export * from './matchers'
