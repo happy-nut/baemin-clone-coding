@@ -1,0 +1,12 @@
+app:
+  name: Restaurant API sever
+  port: 8001
+typeorm:
+  name: default
+  type: mysql
+  port: 3306
+  username: restaurant_api_local
+  password: UNffrRxsbOVc
+  database: restaurant_api_local_user
+  synchronize: true
+  dropSchema: true

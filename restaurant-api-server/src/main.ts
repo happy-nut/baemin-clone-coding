@@ -2,9 +2,10 @@ import { NestFactory } from '@nestjs/core'
 import { AppModule } from './AppModule'
 import { INestApplication, Logger } from '@nestjs/common'
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
+import config from 'config'
 
-const PORT = 8001
-const SERVER_NAME = 'Restaurant API sever'
+const PORT = config.get<number>('app.port')
+const SERVER_NAME = config.get<string>('app.name')
 
 function setupDocument (app: INestApplication) {
   const options = new DocumentBuilder()

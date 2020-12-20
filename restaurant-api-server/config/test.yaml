@@ -1,0 +1,9 @@
+typeorm:
+  name: test
+  type: mysql
+  port: 3306
+  username: restaurant_api_tester
+  password: Mm6SkgR7wFl42s$I
+  database: restaurant_api_test
+  synchronize: true
+  dropSchema: true
