@@ -10,7 +10,7 @@ export class Price extends ValueObject<PriceProps> {
   private static readonly MIN_PRICE = 0
 
   static create (props: PriceProps): Result<Price, DomainViolationError> {
-    if (props.value < Price.MIN_PRICE || !_.isInteger(props.value)) {
+    if (props.value < this.MIN_PRICE || !_.isInteger(props.value)) {
       return err('Invalid price')
     }
 
