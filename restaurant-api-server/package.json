@@ -13,7 +13,7 @@
     "start:dev": "yarn start --watch",
     "start:debug": "yarn start --debug --watch",
     "start:prod": "NODE_CONFIG_DIR=./config && node dist/main",
-    "lint": "eslint \"{src,test}/**/*.ts\" --fix",
+    "lint": "eslint \"{src,test}/**/*.{ts,(i-)?spec.ts,js}\" --fix --color",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",

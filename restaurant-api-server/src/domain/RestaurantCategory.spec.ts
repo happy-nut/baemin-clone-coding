@@ -3,7 +3,7 @@ import { RestaurantCategory, RestaurantCategoryId } from './RestaurantCategory'
 describe('RestaurantCategory', () => {
   describe('create', () => {
     it('creates RestaurantCategory', () => {
-      const id =  new RestaurantCategoryId('test-restaurant-category-id')
+      const id = new RestaurantCategoryId('test-restaurant-category-id')
       const name = 'test-category-name'
 
       const result = RestaurantCategory.create({ name }, id)
@@ -15,7 +15,7 @@ describe('RestaurantCategory', () => {
     })
 
     it('returns err when name is empty', () => {
-      const id =  new RestaurantCategoryId('test-restaurant-category-id')
+      const id = new RestaurantCategoryId('test-restaurant-category-id')
       const name = ''
 
       const result = RestaurantCategory.create({ name }, id)
@@ -26,7 +26,7 @@ describe('RestaurantCategory', () => {
     })
 
     it('returns err when name length is greater than 20', () => {
-      const id =  new RestaurantCategoryId('test-restaurant-category-id')
+      const id = new RestaurantCategoryId('test-restaurant-category-id')
       const name = 'A'.repeat(21)
 
       const result = RestaurantCategory.create({ name }, id)
