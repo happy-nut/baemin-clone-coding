@@ -5,8 +5,8 @@ typeorm:
   name: default
   type: mysql
   port: 3306
-  username: restaurant_api_local
-  password: UNffrRxsbOVc
-  database: restaurant_api_local_user
+  username: restaurant_api_local_user
+  password: sQa%UNffrRxsbOVc
+  database: restaurant_api_local
   synchronize: true
   dropSchema: true
