@@ -24,7 +24,6 @@
       ]
     }
   },
-  "exclude": ["test", "**/*.spec.ts"],
   "references": [
     {
       "path": "../shared/ddd/packages/core"
