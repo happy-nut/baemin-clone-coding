@@ -42,7 +42,7 @@ $ brew services start mysql
 Set up for test.
 
 ```bash
-$ mysql -u root < scripts/setTest.sql
+$ mysql -u root < scripts/setupDatabase.sql
 ```
 
 Run test.
