@@ -14,11 +14,28 @@ describe('DatabaseModule', () => {
       .compile()
   })
 
-  afterEach(async () => {
-    await uut.close()
+  describe('providers', () => {
+    afterEach(async () => {
+      await uut.close()
+    })
+
+    it('resolves DATABASE_CONNECTION', async () => {
+      expect(await uut.resolve(DATABASE_CONNECTION)).toBeInstanceOf(Connection)
+    })
   })
 
-  it('resolves DATABASE_CONNECTION', async () => {
-    expect(await uut.resolve(DATABASE_CONNECTION)).toBeInstanceOf(Connection)
+  describe('.onModuleDestroy', () => {
+    let connectionSpy: jest.SpyInstance
+
+    beforeEach(async () => {
+      const connection = await uut.resolve<Connection>(DATABASE_CONNECTION)
+      connectionSpy = jest.spyOn(connection, 'close')
+    })
+
+    it('closes database connection', async () => {
+      await uut.close()
+
+      expect(connectionSpy).toHaveBeenCalled()
+    })
   })
 })
