@@ -19,8 +19,8 @@ expect.extend({
       }
     } else {
       return {
-        message: () => `Received: "${JSON.stringify(received)}" and` +
-          ` expected: "${JSON.stringify(expected)}" are not equal entities`,
+        message: () => `Received:\n${JSON.stringify(received, null, 2)}\nand` +
+          ` expected:\n${JSON.stringify(expected, null, 2)}\nare not equal entities`,
         pass
       }
     }
