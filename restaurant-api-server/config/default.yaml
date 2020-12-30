@@ -9,4 +9,3 @@ typeorm:
   password: sQa%UNffrRxsbOVc
   database: restaurant_api_local
   synchronize: true
-  dropSchema: true

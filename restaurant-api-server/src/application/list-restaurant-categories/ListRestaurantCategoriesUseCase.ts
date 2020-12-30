@@ -4,13 +4,17 @@ import {
   ListRestaurantCategoriesResponse as Response,
   RestaurantCategoryDto
 } from './ListRestaurantCategoriesResponse'
-import { RestaurantCategoryRepository } from '../../domain/RestaurantCategoryRepository'
+import { RESTAURANT_CATEGORY_REPOSITORY, RestaurantCategoryRepository } from '../../domain/RestaurantCategoryRepository'
 import { ok } from 'neverthrow'
 import { RestaurantCategory } from '../../domain/RestaurantCategory'
 import _ from 'lodash'
+import { Inject, Injectable } from '@nestjs/common'
 
+@Injectable()
 export class ListRestaurantCategoriesUseCase implements UseCase<Request, Response> {
-  constructor (private readonly restaurantCategoryRepository: RestaurantCategoryRepository) {
+  constructor (
+    @Inject(RESTAURANT_CATEGORY_REPOSITORY)
+    private readonly restaurantCategoryRepository: RestaurantCategoryRepository) {
   }
 
   async execute (): Promise<Response> {

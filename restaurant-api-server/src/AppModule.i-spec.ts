@@ -2,6 +2,7 @@ import { AppModule } from './AppModule'
 import { Test, TestingModule } from '@nestjs/testing'
 import { HealthzController } from './presentation/healthz/healthzController'
 import { DatabaseModule } from './modules/database'
+import { ListRestaurantCategoriesController } from './presentation/list-restaurant-categories'
 
 describe('AppModule', () => {
   let uut: TestingModule
@@ -24,9 +25,11 @@ describe('AppModule', () => {
     })
   })
 
-  describe('Controllers', () => {
-    it('gets HealthzController', () => {
-      expect(uut.get(HealthzController)).toBeInstanceOf(HealthzController)
-    })
+  it('gets HealthzController', () => {
+    expect(uut.get(HealthzController)).toBeInstanceOf(HealthzController)
+  })
+
+  it('gets ListRestaurantCategoriesController', () => {
+    expect(uut.get(ListRestaurantCategoriesController)).toBeInstanceOf(ListRestaurantCategoriesController)
   })
 })
