@@ -4,11 +4,12 @@ import request from 'supertest'
 import { HttpStatus, INestApplication } from '@nestjs/common'
 
 describe('HealthzController', () => {
+  let testingModule: TestingModule
   let app: INestApplication
   let uut: unknown
 
   beforeEach(async () => {
-    const testingModule: TestingModule = await Test
+    testingModule = await Test
       .createTestingModule({
         controllers: [HealthzController]
       })
@@ -21,9 +22,10 @@ describe('HealthzController', () => {
 
   afterEach(async () => {
     await app.close()
+    await testingModule.close()
   })
 
-  it('returns nothing', async () => {
+  it('responds 200 OK with nothing', async () => {
     const response = await request(uut)
       .get('/healthz')
 
