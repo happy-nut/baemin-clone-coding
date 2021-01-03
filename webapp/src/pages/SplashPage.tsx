@@ -1,6 +1,7 @@
 import React from 'react'
+import Typography from '@material-ui/core/Typography'
 
 // TODO: Apply design
 export const SplashPage: React.FC = () => {
-  return (<h1>splash page</h1>)
+  return (<Typography variant="subtitle1">배달의 민족</Typography>)
 }
