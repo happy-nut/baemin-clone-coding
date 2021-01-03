@@ -31,3 +31,10 @@ rules:
 settings:
   react:
     version: 'detect'
+overrides:
+  - files:
+      - "*.ts"
+      - "*.tsx"
+    # See https://github.com/yannickcr/eslint-plugin-react/issues/2353
+    rules:
+      react/prop-types: off
